@@ -32,6 +32,7 @@ Update the state of occurrency using endpoint /occurrencies/<occurrency_id>, met
 
 /user                              Method=POST Create a user in DB. Admin is first user created and other users promoted by
                                                this.
+                                               
                                                Requested attributes: username, password
 /login                             Method=GET  Sign in into a user account. (Basic Auth)
 /user                              Method=GET  Show all users(Login required)
