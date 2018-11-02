@@ -30,26 +30,34 @@ Update the state of occurrency using endpoint /occurrencies/<occurrency_id>, met
 
 ## Endpoints
 
-/user                              Method=POST Create a user in DB. Admin is first user created and other users promoted by
-                                               this.
-                                               
-                                               Requested attributes: username, password
-/login                             Method=GET  Sign in into a user account. (Basic Auth)
-/user                              Method=GET  Show all users(Login required)
-/user/<username>                   Method=PUT  Promote a user <username> (Login required in a admin account)
-/user                              Method=GET  Show all users in database (Login required in a admin account)
-/occurrencies                      Method=GET  Show all occurencies  (Login required)
-/occurrencies                      Method=POST Create a occurrence (Login required)
-                                               Requested attributes: escription, category, latitude, longitude
-/occurrencies/author/<username>    Method=GET  Show all occurrencies reported by username (Login required)
-/occurrencies/category/<category>  Method=GET  Show all occurrencies filtered by category (Login required)
-/occurrencies/<occurrence_id>      Method=PUT  Update the state of an occurrence to "validado" or "resolvido"
-                                               (Login required)
-                                               Requests attributes: state
-                                               Detais: 
-                                               . It's only possible to change to "validado" if user is admin.
-                                               . It's only possible to change to "resolvido" if user is the author of     
-                                               occurrence.
+/user
+Method=POST -> Create a user in DB. Admin is first user created and other users promoted by this. Requested attributes: username, password
+/user
+Method=GET -> Show all users in database (Login required in a admin account)
+
+/user/<username>
+Method=PUT -> Promote a user <username> (Login required in a admin account)
+
+/login 
+Method=GET -> Sign in into a user account. (Basic Auth)
+
+/occurrencies 
+Method=GET -> Show all occurencies  (Login required)
+
+/occurrencies
+Method=POST -> Create a occurrence (Login required) Requested attributes: escription, category, latitude, longitude
+       
+/occurrencies/author/<username>
+Method=GET -> how all occurrencies reported by username (Login required)
+
+/occurrencies/category/<category> 
+Method=GET -> Show all occurrencies filtered by category (Login required)
+
+/occurrencies/<occurrence_id>
+Method=PUT -> Update the state of an occurrence to "validado" or "resolvido" (Login required) Requests attributes: state
+Detais: 
+. It's only possible to change to "validado" if user is admin.
+. It's only possible to change to "resolvido" if user is the author of occurrence.
 
 ## Running the tests
 
