@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "9448e3ee-e282-427f-ad1c-f6fe7c71b858",
+		"name": "Occurrencies",
+		"description": "This is a collection to test API for handling of occurrencies in a urban enviroment.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create first User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "first_username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "first_password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "This request creates the first user which is the admin."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Second User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "second_username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "second_password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "This request creates another User."
+			},
+			"response": []
+		},
+		{
+			"name": "Do login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "first_password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "first_username",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				},
+				"description": "This request do the login. The only things that can be done without login is create a user."
+			},
+			"response": []
+		},
+		{
+			"name": "Show Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "This request show all users. Needs to login. Only admins can perform that action."
+			},
+			"response": []
+		},
+		{
+			"name": "Show users filtered by username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/user/first_username",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"first_username"
+					]
+				},
+				"description": "This request filter the users by username"
+			},
+			"response": []
+		},
+		{
+			"name": "Promote a user by username",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/user/second_username",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"second_username"
+					]
+				},
+				"description": "This request shows how to  set a user to admin."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a occurrence",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "description",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "special_event",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "99999",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "99999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/occurrencies",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"occurrencies"
+					]
+				},
+				"description": "This request creates a occurence."
+			},
+			"response": []
+		},
+		{
+			"name": "Show all Occurrencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/occurrencies",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"occurrencies"
+					]
+				},
+				"description": "This request show all the occurrencies from all users."
+			},
+			"response": []
+		},
+		{
+			"name": "Show occurrencies filtered by author",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "locahost:5000/occurrencies/author/first_username",
+					"host": [
+						"locahost"
+					],
+					"port": "5000",
+					"path": [
+						"occurrencies",
+						"author",
+						"first_username"
+					]
+				},
+				"description": "This request filters the occurrencies by author.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Show occurrencies filtered by categorie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "This request shows occurrencies filtered by categorie"
+			},
+			"response": []
+		},
+		{
+			"name": "Set a occurrence to \"validado\"",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "state",
+							"value": "validado",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/occurrencies/3",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"occurrencies",
+						"3"
+					]
+				},
+				"description": "This request set the occurrence to \"validado\".\n\nTo set a occurrence to \"validado\" , needs to be admin.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Set a occurrence to \"resolvido\"",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "state",
+							"value": "resolvido",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/occurrencies/3",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"occurrencies",
+						"3"
+					]
+				},
+				"description": "This request set the occurrence to \"resolvido\".\n\nTo set a occurrence to \"validado\" , needs to be author of the occorrence.\n"
+			},
+			"response": []
+		}
+	]
+}
